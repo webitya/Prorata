@@ -2,7 +2,7 @@ import React from 'react';
 
 const About3ProrataPromo = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center">
+    <div className="flex flex-col items-center justify-center min-h-[80vh] bg-gray-100 text-center">
       <h1 className="text-3xl font-semibold mb-6">Presenting PRORATA!</h1>
       <img src="/ab3.png" alt="PRORATA Logo" className="w-48 h-48 mb-6" />
       <p className="text-lg">

@@ -47,17 +47,38 @@ const BrowseCarsEl = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-3 gap-6 p-6 py-24">
-      {carData.slice(0, visibleCars).map((car) => (
-        <Link key={car.id} to={car.link}>
-          <div className="bg-white p-4 shadow-lg rounded-lg cursor-pointer hover:shadow-2xl transition">
-            <img src={car.image} alt={car.name} className="w-3xl h-auto object-cover rounded-lg" />
-            <h3 className="mt-2 font-semibold">{car.name}</h3>
-            <p className="text-gray-700">{car.price}</p>
-            <p className="text-sm text-gray-500">{car.ticketPrice}</p>
-          </div>
-        </Link>
-      ))}
+    <div className="px-4 py-12">
+      <h2 className="text-center text-3xl font-bold mb-6">Browse Cars</h2>
+
+      {/* Responsive Grid Layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {carData.slice(0, visibleCars).map((car) => (
+          <Link key={car.id} to={car.link}>
+            <div className="bg-white p-4 shadow-lg rounded-lg cursor-pointer hover:shadow-2xl transition">
+              <img
+                src={car.image}
+                alt={car.name}
+                className="w-full h-56 object-cover rounded-lg"
+              />
+              <h3 className="mt-3 text-lg font-semibold">{car.name}</h3>
+              <p className="text-gray-700">{car.price}</p>
+              <p className="text-sm text-gray-500">{car.ticketPrice}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* Load More Button (Visible only if more cars exist) */}
+      {visibleCars < carData.length && (
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={loadMoreCars}
+            className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition"
+          >
+            Load More
+          </button>
+        </div>
+      )}
     </div>
   );
 };

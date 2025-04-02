@@ -36,7 +36,7 @@ const HomeHowItWorks = () => {
         </div>
   
         {/* Footer info */}
-        <div className="mt-8 bg-gray-900 text-white text-center py-3 px-6 rounded-lg inline-block">
+        <div className="mt-8 bg-gray-900 text-white text-center py-3 px-6 inline-block">
           <p className="font-bold">[1 ticket = 8.33% ownership of the car = 30 days usage per year]</p>
         </div>
       </section>

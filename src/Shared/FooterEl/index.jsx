@@ -13,10 +13,10 @@ export default function FooterEl() {
         </div>
         <div className="md:w-1/3 mb-6 md:mb-0">
           <p className="flex items-center">
-            <PhoneFilled className="mr-2 text-yellow-400" /> +91-9693245941
+            <PhoneFilled className="mr-2 text-yellow-400" /> +91-9990907449
           </p>
           <p className="flex items-center">
-            <MailFilled className="mr-2 text-yellow-400" /> care@aditya.com
+            <MailFilled className="mr-2 text-yellow-400" /> info@idmits.com
           </p>
           <p className="flex items-center">
             <EnvironmentFilled className="mr-2 text-yellow-400" /> Contact Us

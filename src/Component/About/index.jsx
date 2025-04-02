@@ -5,6 +5,7 @@ import AboutAdvisorSection from "../../Element/About/AboutAdvisor"
 import AboutHeroDreamBanner from "../../Element/About/AboutHero"
 import AboutHero2 from "../../Element/About/AboutHero2"
 import LayoutEl from "../../Shared/LayoutEl"
+import HomePhoto1 from "../../Element/HomePageEl/HomePhoto1"
 
 
 
@@ -16,6 +17,7 @@ const About=()=>{
            <AboutHero2/>
            <About3ProrataPromo/>
            <AboutFounderMessage/>
+           <HomePhoto1/>
            <AboutAdvisorSection/>
             {/* Sticky Browse Cars Button */}
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[50vw]">
