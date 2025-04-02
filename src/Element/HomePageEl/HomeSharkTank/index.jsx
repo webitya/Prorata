@@ -22,11 +22,10 @@ const HomeSharkTank = () => {
       </h1>
 
       {/* Video Section */}
-      <div className="flex justify-center py-10">
+      <div className="flex justify-center py-10 w-full max-w-[90%] md:max-w-[590px]">
         {showVideo ? (
           <iframe
-            width="590"
-            height="350"
+            className="w-full aspect-video rounded-lg shadow-lg"
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`}
             title="YouTube video player"
             frameBorder="0"
@@ -37,7 +36,7 @@ const HomeSharkTank = () => {
           <img
             src={thumbnailUrl}
             alt="YouTube Video Thumbnail"
-            className="w-[590px] h-[350px] rounded-lg shadow-lg cursor-pointer"
+            className="w-full aspect-video rounded-lg shadow-lg cursor-pointer"
             onClick={() => setShowVideo(true)}
             onError={(e) => {
               e.target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;

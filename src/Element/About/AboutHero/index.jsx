@@ -6,7 +6,7 @@ const { Title, Paragraph } = Typography;
 
 const AboutHeroDreamBanner = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[90vh] bg-gray-200 p-6 text-center">
+    <div className="flex flex-col items-center justify-center md:min-h-[80vh] min-h-[80vh ] bg-gray-200 p-6 text-center">
       <Title level={2} className="text-black">
         It all starts with a <span className="font-bold">DREAM!</span>
       </Title>

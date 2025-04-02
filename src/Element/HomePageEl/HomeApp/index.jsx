@@ -4,7 +4,9 @@ const ProrataAppSection = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between bg-gray-100 px-6 py-12">
       {/* Left Side - Video */}
+      <h2 className="text-4xl font-bold text-gray-800 block md:hidden">Prorata App</h2>
       <div className="md:w-1/2 flex justify-end mt-8 md:mt-0 px-10">
+     
         <div className="w-[250px] h-[500px] relative">
           <video
             src="/video.mp4"  // Ensure the video file is correctly placed in your public folder
@@ -18,7 +20,7 @@ const ProrataAppSection = () => {
 
       {/* Right Side - Text and App Store Buttons */}
       <div className="md:w-1/2 text-center md:text-left">
-        <h2 className="text-4xl font-bold text-gray-800">Prorata App</h2>
+      <h2 className="text-4xl font-bold text-gray-800 hidden md:block">Prorata App</h2> 
         <p className="text-gray-700 text-2xl mt-4">
           <span className="font-bold italic">Seamless reservation</span> for convenience!
         </p>

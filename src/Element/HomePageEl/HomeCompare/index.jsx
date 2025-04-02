@@ -6,7 +6,7 @@ const CompareRenting = () => {
       <h2 className="text-2xl font-bold text-center mb-4">
         Let's compare Renting with <br /> Co-owning a car!
       </h2>
-      <div className="flex items-center gap-10">
+      <div className="flex md:flex-row flex-col items-center gap-10">
         <img src="girl.png" alt="Comparison Girl" className="w-72" />
         <div>
           <div className="flex justify-center gap-2 mb-2">

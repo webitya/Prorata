@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Collapse } from "antd";
+import { Collapse ,Select} from "antd";
 import LayoutEl from "../../Shared/LayoutEl";
 import { RightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+const { Panel } = Collapse;
 
 const faqData = [
   {
@@ -72,19 +73,36 @@ const FAQMainSection = () => {
 
   return (
     <LayoutEl>
-      <div className="flex flex-col items-center py-24 bg-gray-100 text-gray-900">
-        <h2 className="text-4xl font-bold mb-8">Frequently Asked Questions</h2>
-        <div className="flex w-full max-w-5xl bg-gray-200 rounded-lg shadow-lg overflow-hidden">
-          {/* Left Side - Categories */}
-          <div className="w-1/3 p-4 bg-white border-r border-gray-300">
+      <div className="flex flex-col items-center py-24 px-4 md:px-8 bg-gray-100 text-gray-900">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+
+        {/* Categories Dropdown for Mobile */}
+        <div className="w-full max-w-5xl">
+          <div className="md:hidden w-full mb-4">
+            <Select
+              value={selectedCategory}
+              onChange={(value) => setSelectedCategory(value)}
+              className="w-full"
+            >
+              {faqData.map((category) => (
+                <Select.Option key={category.category} value={category.category}>
+                  {category.category}
+                </Select.Option>
+              ))}
+            </Select>
+          </div>
+        </div>
+
+        {/* Container for Categories & FAQs */}
+        <div className="flex flex-col md:flex-row w-full max-w-5xl bg-gray-200 rounded-lg shadow-lg overflow-hidden">
+          {/* Categories Sidebar (Only on Desktop) */}
+          <div className="hidden md:block md:w-1/3 w-full p-4 bg-white border-r border-gray-300">
             <h3 className="text-lg font-semibold mb-4">Categories</h3>
             {faqData.map((category) => (
               <div
                 key={category.category}
-                className={`p-3 cursor-pointer flex justify-between items-center text-lg font-medium rounded-lg transition-all duration-300 ${
-                  selectedCategory === category.category
-                    ? "bg-black text-white"
-                    : "text-gray-700 hover:bg-gray-300"
+                className={`p-3 cursor-pointer flex justify-between items-center text-lg font-medium rounded-lg transition-all duration-300 w-full ${
+                  selectedCategory === category.category ? "bg-black text-white" : "text-gray-700 hover:bg-gray-300"
                 }`}
                 onClick={() => setSelectedCategory(category.category)}
               >
@@ -94,32 +112,33 @@ const FAQMainSection = () => {
             ))}
           </div>
 
-          {/* Right Side - FAQs */}
-          <div className="w-2/3 p-6 bg-gray-100">
+          {/* FAQs Section */}
+          <div className="md:w-2/3 w-full p-6 bg-gray-100">
             <h3 className="text-xl font-semibold mb-4 text-gray-800">{selectedCategory}</h3>
             <Collapse accordion expandIconPosition="right" className="bg-white rounded-lg shadow">
               {faqData
                 .find((cat) => cat.category === selectedCategory)
                 ?.faqs.map((faq, index) => (
-                  <Collapse.Panel 
-                    header={<span className="text-gray-800 font-medium">{faq.question}</span>} 
-                    key={index} 
+                  <Panel
+                    header={<span className="text-gray-800 font-medium">{faq.question}</span>}
+                    key={index}
                     className="bg-white border-b border-gray-300"
                   >
                     <p className="text-gray-600">{faq.answer}</p>
-                  </Collapse.Panel>
+                  </Panel>
                 ))}
             </Collapse>
           </div>
         </div>
       </div>
-       {/* Sticky Browse Cars Button */}
-       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[50vw]">
+
+      {/* Sticky Browse Cars Button */}
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[50vw]">
         <Link to="/cars">
-        
-        <button className="w-full py-2 bg-[#DC3444] text-white cursor-pointer  font-bold rounded-lg shadow-lg hover:bg-[#DC3444] transition">
-          BROWSE CARS
-        </button></Link>
+          <button className="w-full py-2 bg-[#DC3444] text-white font-bold rounded-lg shadow-lg hover:bg-red-700 transition">
+            BROWSE CARS
+          </button>
+        </Link>
       </div>
     </LayoutEl>
   );
